@@ -1,0 +1,16 @@
+<div class="jumbotron jumbotron-fluid" style="background: url('assets/.png'); background-color: #00ca72;">
+  <div class="container" style="color: white">
+      <h1 class="display-4">Un petit outil de gestion de projet</h1>
+      <p class="lead">Bonjour à tous. Voici mon prototype. Il y a encore quelques bugs, mais j'ai décidé de me limiter à moins de 10h de dev. Merci par avance de vos retours.</p>
+      <hr class="my-4">
+      <li>Utilisateur 1: team_1@mail.com - Mot de passe: 000000</li>
+      <li>Utilisateur 2: team_2@mail.com - Mot de passe: 000000</li>
+      <li>Utilisateur 3: team_3@mail.com - Mot de passe: 000000</li>
+      <li>Admin: admin@mail.com - Mot de passe: 000000</li>
+    <div class="marge" style="margin-top: 30px">
+    <% unless user_signed_in?%>
+      <%= link_to 'se connecter', new_user_session_path, :class => "btn btn-light" %>
+    <% end %>
+    </div>
+  </div>
+</div>

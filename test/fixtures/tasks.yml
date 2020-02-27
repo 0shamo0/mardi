@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_name: MyString
+  task_designation: MyText
+  date_butoire: 2020-02-17
+
+two:
+  task_name: MyString
+  task_designation: MyText
+  date_butoire: 2020-02-17

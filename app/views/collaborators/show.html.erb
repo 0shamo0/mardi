@@ -1,0 +1,26 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+
+
+<div class="card" style="width: 25rem; text-align: center; margin: auto">
+ 
+<p>
+  <strong>Nom du collaborateur:</strong>
+  <%= @collaborator.collaborator_name %>
+</p>
+
+<p>
+  <strong>Email du collaborateur</strong>
+  <%= @collaborator.collaborator_email %>
+</p>
+
+<p>
+<div class="my_ico" style="width: 150px; height: auto; margin: auto">
+  <%= image_tag(@collaborator.image, style:'width: 150px; border-radius: 50%') %>
+</div>
+</p>
+
+</div>
+
+</div>

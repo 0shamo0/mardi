@@ -1,0 +1,47 @@
+<div class="container" style="padding-bottom: 100px">
+<p id="notice"><%= notice %></p>
+
+<h1>Listes des collaborateurs</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom du collaborateur</th>
+      <th>Email du collaborateur</th>
+      <th>Pin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collaborators.each do |collaborator| %>
+      <tr>
+        <td><%= link_to collaborator.collaborator_name, collaborator %></td>
+        <td><%= collaborator.collaborator_email %></td>
+        
+        <div class="my_ico" style="width: 40px; height: auto;">
+            <td><%= mail_to collaborator.collaborator_email, image_tag(collaborator.image, style:'width: 40px; border-radius: 50%') %></td>
+        </div>
+        
+        <div class="navbar-nav ml-auto">
+                  <td><td>
+                  <div class="luka" style="text-align: right;">  
+                  <%= link_to edit_collaborator_path(collaborator) do %>
+                  <%= fa_icon 'edit', :style => "font-size: 25px; color: #444444" %>
+                  <% end %>
+                  
+                  <%= link_to collaborator, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <%= fa_icon 'trash', :style => "font-size: 25px; color: #444444" %>
+                  <% end %>
+                  </div>
+        </div>
+        
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '+ Ajouter un nouveau collaborateur', new_collaborator_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+</div>

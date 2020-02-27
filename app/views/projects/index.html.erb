@@ -1,0 +1,41 @@
+<div class="container">
+<div class="animated fadeIn delay-1s">
+<p id="notice"><%= notice %></p>
+
+<h1>Projets</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom du projet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.project_name, project %></td>
+      
+        <td><td>
+          
+        <div class="luka" style="text-align: right;">  
+        <%= link_to edit_project_path(project) do %>
+        <%= fa_icon 'edit', :style => "font-size: 25px; color: #444444;" %>
+        <% end %>
+        
+        <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <%= fa_icon 'trash', :style => "font-size: 25px; color: #444444" %>
+        <% end %>
+        </div>
+        
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '+ Ajouter un nouveau projet', new_project_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+</div>
+</div>
