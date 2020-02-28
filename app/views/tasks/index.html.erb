@@ -7,13 +7,13 @@
 <div class="marge" style="margin-top: 35px; margin-bottom: 35px;">
 
 <% if current_user.email == "team_1@mail.com" %>
-    <td><%= image_tag("kakashi.jpg", style:'width: 40px; border-radius: 50%') %></td>
+    <td><%= image_tag("rep_1.png", style:'width: 40px; border-radius: 50%') %></td>
 <% elsif current_user.email == "team_2@mail.com" %>    
-    <td><%= image_tag("gai.png", style:'width: 40px; border-radius: 50%') %></td>
+    <td><%= image_tag("rep_1.png", style:'width: 40px; border-radius: 50%') %></td>
 <% elsif current_user.email == "team_3@mail.com" %>   
-    <td><%= image_tag("asuma.png", style:'width: 40px; border-radius: 50%') %></td>
+    <td><%= image_tag("rep_1.png", style:'width: 40px; border-radius: 50%') %></td>
 <% elsif current_user.email == "admin@mail.com" %>
-    <td><%= image_tag("Hiruzen.png", style:'width: 40px; border-radius: 50%') %></td>
+    <td><%= image_tag("admin.png", style:'width: 40px; border-radius: 50%') %></td>
 <% else%>   
     <td><%= image_tag("project.png", style:'width: 40px; border-radius: 50%') %></td>
 <% end %>
