@@ -8,7 +8,7 @@
     <tr>
       <th>Nom du collaborateur</th>
       <th>Email du collaborateur</th>
-      <th>Pin</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,9 +19,7 @@
         <td><%= link_to collaborator.collaborator_name, collaborator %></td>
         <td><%= collaborator.collaborator_email %></td>
         
-        <div class="my_ico" style="width: 40px; height: auto;">
-            <td><%= mail_to collaborator.collaborator_email, image_tag(collaborator.image, style:'width: 40px; border-radius: 50%') %></td>
-        </div>
+        
         
         <div class="navbar-nav ml-auto">
                   <td><td>

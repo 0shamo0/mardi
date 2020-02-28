@@ -54,7 +54,7 @@
         <td><%= task.project.project_name %></td>
         
         <div class="my_ico" style="width: 40px; height: auto;">
-            <td><%= mail_to task.collaborator.collaborator_email,image_tag(task.collaborator.image, style:'width: 40px; border-radius: 50%') %></td>
+            <td><%= mail_to task.collaborator.collaborator_email %></td>
         </div>
         
         <% if task.step_id == 1 %>
