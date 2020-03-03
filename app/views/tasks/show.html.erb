@@ -4,20 +4,24 @@
 <div class="card">
 <div class="card-body" style="width: 80%">
   
-
 <p>
   <strong>Nom de la tâche:</strong>
-  <%= @task.task_name %>
+  <%= best_in_place @task, :task_name %>
 </p>
 
 <p>
   <strong>Désignation:</strong>
-  <%= @task.task_designation %>
+  <%= best_in_place @task, :task_designation %>
 </p>
 
 <p>
   <strong>Date butoire:</strong>
-  <%= @task.date_butoire %>
+  <%= best_in_place @task, :date_butoire %>
+</p>
+
+<p>
+  <strong>Date butoire:</strong>
+  <%= best_in_place @task, :collaborator_id %>
 </p>
 
 </div>

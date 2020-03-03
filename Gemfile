@@ -13,6 +13,8 @@ gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 
 gem 'devise'
 
+gem 'best_in_place', '~> 3.0.1'
+
 gem 'puma', '~> 3.11'
 
 gem 'sass-rails', '~> 5.0'

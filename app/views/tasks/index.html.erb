@@ -1,104 +1,115 @@
 <div class="container" style="padding-bottom: 100px">
-<div class="animated fadeIn delay-1s">
-<p id="notice"><%= notice %></p>
-
-<h1>Liste des tâches</h1>
-
-<div class="marge" style="margin-top: 35px; margin-bottom: 35px;">
-
-<% if current_user.email == "team_1@mail.com" %>
-    <td><%= image_tag("rep_1.png", style:'width: 40px; border-radius: 50%') %></td>
-<% elsif current_user.email == "team_2@mail.com" %>    
-    <td><%= image_tag("rep_1.png", style:'width: 40px; border-radius: 50%') %></td>
-<% elsif current_user.email == "team_3@mail.com" %>   
-    <td><%= image_tag("rep_1.png", style:'width: 40px; border-radius: 50%') %></td>
-<% elsif current_user.email == "admin@mail.com" %>
-    <td><%= image_tag("admin.png", style:'width: 40px; border-radius: 50%') %></td>
-<% else%>   
-    <td><%= image_tag("project.png", style:'width: 40px; border-radius: 50%') %></td>
-<% end %>
-
-<div class="marge"  style="margin-top: -30px; margin-left: 60px;">
-<td><%= current_user.email %></td>
-</div>
-</div>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Nom de la tâche</th>
-      <th>Désignation</th>
-      <th>Date butoire</th>
-      <th>Nom du projet</th>
-      <th>Collaborateur</th>
-      <th>Statut</th> 
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        
-        <td><%= link_to task.task_name, task %></td>
-        <td><%= task.task_designation.truncate(30) %></td>
-        
-        <% my_date = Date.today %>
-        
-        <% if my_date > task.date_butoire - 5.day %>
-          <td style="background-color: #ff3d57; color: white;"><%= task.date_butoire %></td>
-        <% else %>
-          <td style="background-color: #00ca72; color: white;"><%= task.date_butoire %></td>
-        <% end %>
-        
-        <td><%= task.project.project_name %></td>
-        
-        <div class="my_ico" style="width: 40px; height: auto;">
-            <td><%= mail_to task.collaborator.collaborator_email %></td>
-        </div>
-        
-        <% if task.step_id == 1 %>
-          <td style="background-color: #ff1434; color: white; text-align: center"><%= task.step.step_name %></td>
-        <% elsif task.step_id == 2 %>
-          <td style="background-color: #ff3d57; color: white; text-align: center"><%= task.step.step_name %></td>
-        <% elsif task.step_id == 3 %>
-          <td style="background-color: orange; color: white; text-align: center"><%= task.step.step_name %></td>
-        <% elsif task.step_id == 4 %>
-          <td style="background-color: #17eb8f; color: white; text-align: center"><%= task.step.step_name %></td>
-        <% else %>
-          <td style="background-color: #00ca72; color: white; text-align: center"><%= task.step.step_name %></td>
-        <% end %>
-     
-        <% if current_user == true %>
-          <td><%= task.user.email %></td>
-        <% end %>
-        
-            <div class="navbar-nav ml-auto">
-                  <td><td>
-                  <div class="luka" style="text-align: right;">  
-                  <%= link_to edit_task_path(task) do %>
-                  <%= fa_icon 'edit', :style => "font-size: 25px; color: #444444" %>
-                  <% end %>
-                  
-                  <%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <%= fa_icon 'trash', :style => "font-size: 25px; color: #444444" %>
-                  <% end %>
-                  </div>
-            </div>
-      
-      </tr>
+  <div class="animated fadeIn delay-1s">
+    <p id="notice"><%= notice %></p>
+    
+    <h1>Liste des tâches</h1>
+    
+    <div class="marge" style="margin-top: 35px; margin-bottom: 35px;">
+    
+    <% if current_user.email == "team_1@mail.com" %>
+        <td><%= image_tag("rep_1.png", style:'width: 40px; border-radius: 50%') %></td>
+    <% elsif current_user.email == "team_2@mail.com" %>    
+        <td><%= image_tag("rep_1.png", style:'width: 40px; border-radius: 50%') %></td>
+    <% elsif current_user.email == "team_3@mail.com" %>   
+        <td><%= image_tag("rep_1.png", style:'width: 40px; border-radius: 50%') %></td>
+    <% elsif current_user.email == "admin@mail.com" %>
+        <td><%= image_tag("admin.png", style:'width: 40px; border-radius: 50%') %></td>
+    <% else%>   
+        <td><%= image_tag("project.png", style:'width: 40px; border-radius: 50%') %></td>
     <% end %>
-  </tbody>
-</table>
-
-
-
-
-
-<br>
-
-<%= link_to '+ Ajouter une nouvelle tâche', new_task_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
-
+    
+    <div class="marge"  style="margin-top: -30px; margin-left: 60px;">
+    <td><%= current_user.email %></td>
+    </div>
+    </div>
+    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nom de la tâche</th>
+          <th>Désignation</th>
+          <th>Date butoire</th>
+          <th>Nom du projet</th>
+          <th>Collaborateur</th>
+          <th>Statut</th> 
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr>
+            
+            <td><%= link_to task.task_name, task %></td>
+            <td><%= task.task_designation.truncate(30) %></td>
+            
+            <% my_date = Date.today %>
+            
+            <% if my_date > task.date_butoire - 5.day %>
+              <td style="background-color: #ff3d57; color: white;"><%= task.date_butoire %></td>
+            <% else %>
+              <td style="background-color: #00ca72; color: white;"><%= task.date_butoire %></td>
+            <% end %>
+            
+            <td><%= task.project.project_name %></td>
+            
+            <div class="my_ico" style="width: 40px; height: auto;">
+                <td><%= mail_to task.collaborator.collaborator_email %></td>
+            </div>
+            
+            <% if task.step_id == 1 %>
+              <td style="background-color: #ff1434; color: white; text-align: center"><%= task.step.step_name %></td>
+            <% elsif task.step_id == 2 %>
+              <td style="background-color: #ff3d57; color: white; text-align: center"><%= task.step.step_name %></td>
+            <% elsif task.step_id == 3 %>
+              <td style="background-color: orange; color: white; text-align: center"><%= task.step.step_name %></td>
+            <% elsif task.step_id == 4 %>
+              <td style="background-color: #17eb8f; color: white; text-align: center"><%= task.step.step_name %></td>
+            <% else %>
+              <td style="background-color: #00ca72; color: white; text-align: center"><%= task.step.step_name %></td>
+            <% end %>
+         
+            <% if current_user == true %>
+              <td><%= task.user.email %></td>
+            <% end %>
+            
+                <div class="navbar-nav ml-auto">
+                      <td><td>
+                      <div class="luka" style="text-align: right;">  
+                      <%= link_to edit_task_path(task) do %>
+                      <%= fa_icon 'edit', :style => "font-size: 25px; color: #444444" %>
+                      <% end %>
+                      
+                      <%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                      <%= fa_icon 'trash', :style => "font-size: 25px; color: #444444" %>
+                      <% end %>
+                      </div>
+                </div>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <br>
+    
+<div id="new-band">    
+    <%= link_to '+ Ajouter une nouvelle tâche', new_task_path, remote: true, :class => "btn btn-primary btn-sm", :style => "color: white" %>
 </div>
 
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
