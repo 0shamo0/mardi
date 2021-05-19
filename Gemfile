@@ -15,7 +15,7 @@ gem 'devise'
 
 gem 'best_in_place', '~> 3.0.1'
 
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 
 gem 'sass-rails', '~> 5.0'
 
